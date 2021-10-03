@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :questions
+  has_many :socket_channels
      
   ########### start Doorkeeper hepler method
   def self.authenticate(email, password)

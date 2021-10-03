@@ -1,0 +1,5 @@
+require 'pusher'
+Pusher.app_id = '1276051'
+Pusher.key = 'eacf26f0bc3a1caf0647'
+Pusher.secret = '20e4119076319b71c760'
+Pusher.cluster = 'ap2'
