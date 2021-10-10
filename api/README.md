@@ -26,10 +26,9 @@ All set, API's are ready!
 # NOTE 
 To access API you will required user, create user using below API details in the Postman:
 
-URL- http://localhost:3000/api/users
-Method - POST
-Body(json) - 
-- `{
+- URL- http://localhost:3000/api/users
+- Method - POST
+- Body(json) - `{
     "email": <user_name>,
     "password": <passowrd>,
     "client_id": "TQXWDJYJZUELOTSGILGBKUAQQLNEIKDJDJIZ"
