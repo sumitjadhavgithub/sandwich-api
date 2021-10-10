@@ -32,7 +32,6 @@ class Api::ApplicationController < ActionController::API
         return {:json => {error: {code: 1001, message: 'Not authorized'} }}
     end
 
-
     private
 
     def current_user

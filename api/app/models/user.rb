@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :questions
-  has_many :socket_channels
+  has_many :web_sockets
      
   ########### start Doorkeeper hepler method
   def self.authenticate(email, password)
@@ -16,6 +16,12 @@ class User < ApplicationRecord
       return user
     end
   end
-
   ########### End Doorkeeper hepler method    
+  def user_json
+    {
+      id: id,
+      email: email,
+      uuid: web_sockets.present? ? web_sockets.first.uuid : ""
+    }
+  end 
 end

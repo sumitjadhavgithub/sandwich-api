@@ -22,6 +22,9 @@ class Api::UsersController < Api::ApplicationController
         render_error({ code: 1000, message: "Sorry, something has gone wrong." }, nil, false)
     end
 
+    def get_user
+        render_success({user: user.user_json})
+    end
 
     def render_create_success
         token_details = DoorkeeperService.new(@user, @client_app).generate_access_token
@@ -32,5 +35,9 @@ class Api::UsersController < Api::ApplicationController
 
     def user_params
         params.permit(:email, :password)
+    end
+
+    def user
+        User.find(current_user.id)
     end
 end

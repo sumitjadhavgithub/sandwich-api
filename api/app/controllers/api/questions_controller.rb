@@ -8,13 +8,14 @@ class Api::QuestionsController < Api::ApplicationController
     end
 
     def get_questions
-        render_success ({questions: current_user.questions})
+        WebSocketService.new(WebSocket.get_channel(current_user.id, 'user'))
+        render_success ({questions: Question.first})
     rescue StandardError => e
         render_error({ code: 1000, message: "Sorry, something has gone wrong." })
     end
 
     def get_answers
-        render_success ({answers: question.answers})
+        render_success ({answers: Question.first.answers.last(100)})
     rescue StandardError => e
         render_error({ code: 1000, message: "Sorry, something has gone wrong." })
 

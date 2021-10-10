@@ -6,12 +6,10 @@ class WebSocketService
     end
 
     def trigger(event, data = {})
-        puts "sumit ----- came here 3"
         return nil unless @channel.present?
         merged_data = {
           user_id: @channel.user.id
         }.merge(data)
-        puts "sumit ----- came here 4 #{@channel}"
         send(@channel.channel_name, event, merged_data)
     end
 

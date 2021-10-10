@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     resources :questions, only: %i[create]
     resources :answers, only: %i[create]
 
+    get 'get_user' => 'users#get_user'
     get 'questions' => 'questions#get_questions'
     get 'questions/:id/answers' => 'questions#get_answers'
 
